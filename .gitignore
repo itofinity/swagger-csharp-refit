@@ -1,0 +1,7 @@
+.idea/
+clients/
+gen_client_petstore.cmd
+gen_client_bitbucket20.cmd
+target/
+tools/swagger-codegen-cli-2.2.3.jar
+CSharpRefitCodegen-swagger-codegen.iml

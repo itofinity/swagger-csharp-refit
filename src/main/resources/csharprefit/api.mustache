@@ -1,0 +1,45 @@
+{{>partial_header}}
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+{{#netStandard}}
+// TODO does this work?
+using Refit.Portable;
+{{/netStandard}}
+{{^netStandard}}
+using Refit;
+{{/netStandard}}
+using {{packageName}}.Client;
+{{#hasImport}}using {{packageName}}.{{modelPackage}};
+{{/hasImport}}
+
+namespace {{packageName}}.{{apiPackage}}
+{
+    {{#operations}}
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
+    {{>visibility}} interface {{interfacePrefix}}{{classname}}
+    {
+        {{#supportsAsync}}
+        #region Asynchronous Operations
+        {{#operation}}
+
+        /// <summary>
+        /// {{summary}}
+        /// </summary>
+        /// <remarks>
+        /// {{notes}}
+        /// </remarks>
+        /// <exception cref="{{packageName}}.Client.ApiException">Thrown when fails to make API call</exception>
+        {{#allParams}}/// <param name="{{paramName}}">{{description}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}</param>
+        {{/allParams}}/// <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>
+        [{{httpMethod}}("{{#netStandard}}.{{/netStandard}}{{{path}}}")]
+        {{#returnType}}System.Threading.Tasks.Task<Model.{{#returnTypePackageName}}{{{returnTypePackageName}}}.{{/returnTypePackageName}}{{{returnType}}}>{{/returnType}}{{^returnType}}System.Threading.Tasks.Task{{/returnType}} {{operationId}}([Header("UserAgent")] string userAgent{{#hasParams}}, {{/hasParams}}{{#allParams}}{{#isBodyParam}}[Body]{{/isBodyParam}}{{#isPathParam}}[AliasAs("{{paramName}}")]{{/isPathParam}}{{#isQueryParam}}[AliasAs("{{paramName}}")]{{/isQueryParam}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/allParams}});
+        {{/operation}}
+        #endregion Asynchronous Operations
+        {{/supportsAsync}}
+    }
+    {{/operations}}
+}

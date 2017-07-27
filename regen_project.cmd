@@ -1,0 +1,1 @@
+java -jar .\tools\swagger-codegen-cli-2.2.3.jar meta -o . -n CSharpRefitCodegen -p uk.co.itofinity.codegen

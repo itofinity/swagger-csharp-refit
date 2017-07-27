@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+{{#appName}}
+    {{{appName}}}
+
+{{/appName}}
+    {{#appDescription}}
+        {{{appDescription}}}
+
+    {{/appDescription}}
+    {{#version}}OpenAPI spec version: {{version}}{{/version}}
+    {{#infoEmail}}Contact: {{{infoEmail}}}{{/infoEmail}}
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+        <HasSharedItems>true</HasSharedItems>
+        <SharedGUID>{{packageGuid}}</SharedGUID>
+    </PropertyGroup>
+    <PropertyGroup Label="Configuration">
+        <Import_RootNamespace>{{packageName}}</Import_RootNamespace>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="$(MSBuildThisFileDirectory)Client\ApiClient.cs" />
+{{#apiInfo}}
+    {{#apis}}
+        <Compile Include="$(MSBuildThisFileDirectory){{apiPackage}}\{{classname}}.cs" />
+    {{/apis}}
+{{/apiInfo}}
+{{#models}}
+    {{#model}}
+        <Compile Include="$(MSBuildThisFileDirectory){{modelPackage}}\{{classname}}.cs" />
+    {{/model}}
+{{/models}}
+    </ItemGroup>
+</Project>

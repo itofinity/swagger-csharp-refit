@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+{{#appName}}
+    {{{appName}}}
+
+{{/appName}}
+    {{#appDescription}}
+        {{{appDescription}}}
+
+    {{/appDescription}}
+    {{#version}}OpenAPI spec version: {{{version}}}{{/version}}
+    {{#infoEmail}}Contact: {{{infoEmail}}}{{/infoEmail}}
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Description>{{#appName}}{{{appName}}}{{/appName}}
+            {{#appDescription}}{{{appDescription}}}{{/appDescription}}
+            {{#version}}OpenAPI spec version: {{{version}}}{{/version}}
+            {{#infoEmail}}Contact: {{{infoEmail}}}{{/infoEmail}}
+        </Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NUnit" Version="3.7.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\{{packageName}}\{{packageName}}.csproj" />
+    </ItemGroup>
+
+</Project>
+
+

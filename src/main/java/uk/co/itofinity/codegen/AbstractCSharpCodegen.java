@@ -82,7 +82,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegen implements Co
                         "private", "protected", "public", "readonly", "ref", "return", "sbyte", "sealed",
                         "short", "sizeof", "stackalloc", "static", "string", "struct", "switch", "this", "throw",
                         "true", "try", "typeof", "uint", "ulong", "unchecked", "unsafe", "ushort", "using",
-                        "virtual", "void", "volatile", "while")
+                        "virtual", "void", "volatile", "while", "version")
         );
 
         // TODO: Either include fully qualified names here or handle in DefaultCodegen via lastIndexOf(".") search

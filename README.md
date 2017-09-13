@@ -42,7 +42,7 @@ or
 java -cp target/CSharpRefitCodegen-swagger-codegen-1.0.0.jar;tools/swagger-codegen-cli-2.2.3.jar io.swagger.codegen.SwaggerCodegen generate -l csharprefit  -i {url_or_path_to_swagger_json} -o clients/{client_name}
 ```
 #### From artifact
-Download the latest [jar](https://github.com/itofinity/swagger-csharp-refit/releases)
+Download the [latest jar](https://github.com/itofinity/swagger-csharp-refit/releases/latest)
 
  
 .\gen_client_bitbucket20.cmd gives an example of a more feature rich call.

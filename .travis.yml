@@ -3,6 +3,6 @@ deploy:
   provider: releases
   api_key:
     secure: m6FYT4fT3/qhjvp/X65MnJPVDgjOrALsZsosBwLALyV+03ReiiJHQxSCepogGMD1QyLw/v6V4q7NJHtezxkDkjx+7UYMqiwj5/R+zcltIryA8Upjv8agxQJiBkRHjXZtlDom+xD3fmYDzv/02KnvK7ysygSkOL8n9oAGzeRCL98DlBpbpQslYmGTKVU2muyid5+uoX4gc1ZyNV+V42fI8biP0yRJdsjgEsjQjQ8RH4qg8/agRHBGOcNW/TXCuSnUgSA3EcKwaK72+yvZWLIIvJO9nPilTH0Ndzl3ykY3HWq1o8nA6NUbXSnKvo7l/XNcc6jTMIx14snXYgIGlXSCA6CTtegZigY1Ad3c+/4otijCezivNQqNwmbcIDaHTslCrOheLaXPGaceWYnnbu0Yi/pkIwpCNugWBwcNvyx88MfboUns17ZYIpBeKcIxAF0Fiami0eJfboYoPcrVSOpMcYj+Wv9gSEgGGvCX0A5duBZ6ZlnLAGW+MBSsm+gqvAhUNOlGxvEh6RFj3fX1eMJVoBXJjrwgV4T6Xl/v+tX1wwTcWjf17ygNHPIVyIUp1PichX5OK5KBfJYhsLMPS6/bujZwwl69HF7v+fUsBWXcmo+gzYyl0IwSQzApd5Oyk/Nr6SQ3oA4rGFHfxImQGHN+ju6g8tgb41g2g4fkpP/DUAs=
-  file: target/*.jar
+  file: /home/travis/build/itofinity/swagger-csharp-refit/target/CSharpRefitCodegen-swagger-codegen*.jar
   on:
     repo: itofinity/swagger-csharp-refit

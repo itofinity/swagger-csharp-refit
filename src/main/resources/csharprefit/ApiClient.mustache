@@ -28,34 +28,24 @@ namespace {{packageName}}.Client
     /// </summary>
     {{>visibility}} partial class ApiClient
     {
-        /// <summary>
-        ///     Creates a new instance of the <see cref="ApiClient" /> using the specified Url and auth header
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="scheme"></param>
-        /// <param name="token"></param>
-        public ApiClient(string url, string scheme, string token) : this(url, () => { return Task.Run(() => { return new Tuple<string, string>(scheme, token); }); })
+        public ApiClient(HttpClient client)
         {
+{{#apiInfo}}
+    {{#apis}}
+        {{#operations}}
+            {{classname}}Client = RestService.For<{{interfacePrefix}}{{classname}}>(client);
+
+        {{/operations}}
+    {{/apis}}
+{{/apiInfo}}
         }
 
-        /// <summary>
-        ///     Creates a new instance of the <see cref="ApiClient" /> using the specified Url
-        /// </summary>
-        /// <param name="url"></param>
         /// <param name="getSchemeAndToken"></param>
-        public ApiClient(string url, Func<Task<Tuple<string, string>>> getSchemeAndToken)
-        {
-    {{#apiInfo}}
-        {{#apis}}
-            {{#operations}}
-            {{classname}}Client = RestService.For<{{interfacePrefix}}{{classname}}>(new HttpClient(new AuthenticatedHttpClientHandler(getSchemeAndToken))
+        public ApiClient(string url, Func<Task<Tuple<string, string>>> getSchemeAndToken) : this(new HttpClient(new AuthenticatedHttpClientHandler(getSchemeAndToken))
             {
-                BaseAddress = new Uri(url)
-            });
-
-            {{/operations}}
-        {{/apis}}
-    {{/apiInfo}}
+            BaseAddress = new Uri(url)
+            })
+        {
         }
 
 {{#apiInfo}}

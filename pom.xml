@@ -5,7 +5,7 @@
   <artifactId>CSharpRefitCodegen-swagger-codegen</artifactId>
   <packaging>jar</packaging>
   <name>CSharpRefitCodegen-swagger-codegen</name>
-  <version>1.0.0</version>
+  <version>1.0.2</version>
   <prerequisites>
     <maven>2.2.0</maven>
   </prerequisites>

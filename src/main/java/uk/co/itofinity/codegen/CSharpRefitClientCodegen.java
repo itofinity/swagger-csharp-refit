@@ -289,6 +289,7 @@ public class CSharpRefitClientCodegen extends AbstractCSharpCodegen {
 
         supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
         supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
+        supportingFiles.add(new SupportingFile("appveyor.mustache", "", "appveyor.yml"));
         // apache v2 license
         // UPDATE (20160612) no longer needed as the Apache v2 LICENSE is added globally
         //supportingFiles.add(new SupportingFile("LICENSE", "", "LICENSE"));

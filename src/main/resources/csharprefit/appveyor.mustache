@@ -1,0 +1,34 @@
+version: 0.1.{build}
+image: Visual Studio 2017 Preview
+before_build:
+- ps: >-
+.nuget\nuget source add -source https://api.nuget.org/v3/index.json -name v3
+
+.nuget\nuget.exe restore
+build_script:
+- ps: >-
+dotnet build /p:Version=$Env:APPVEYOR_BUILD_VERSION
+test: off
+artifacts:
+- path: src\{{packageName}}\bin\Debug\*.nupkg
+name: Package
+#deploy:
+#- provider: NuGet
+#  api_key:
+#    secure: 12344567890 # your encrypted token from Nuget
+#  artifact: Package
+#  on:
+#    branch: master
+#    appveyor_repo_tag: true
+deploy:
+- provider: GitHub
+release: {{packageName}}-v$(appveyor_build_version)
+description: '{{packageName}} Release'
+auth_token:
+secure: 12344567890 # your encrypted token from GitHub
+artifact: Package            # upload all NuGet packages to release assets
+draft: false
+prerelease: false
+on:
+branch: master                 # release from master branch only
+appveyor_repo_tag: true

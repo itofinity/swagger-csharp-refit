@@ -16,7 +16,14 @@ Check out [OpenAPI-Spec](https://github.com/OAI/OpenAPI-Specification) for addit
 ## Usage
 
 ### To build the generator
-Clone this repository and then run:
+Clone this repository.
+
+Once inside the repository folder clone the submodule:
+```
+git submodule init
+git submodule update
+```
+and then run:
 ```
 build.cmd
 ```

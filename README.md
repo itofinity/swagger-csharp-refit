@@ -1,4 +1,4 @@
-# Swagger Codegen for the CSharpRefitCodegen library
+swaggger_csharp_refit\# Swagger Codegen for the CSharpRefitCodegen library
 
 ## Overview
 This is a generator for building C# Refit based REST API clinet libraries from swagger.json files.
@@ -23,7 +23,7 @@ Once inside the repository folder clone the submodule:
 git submodule init
 git submodule update
 ```
-and then run:
+and then in the swagger-csharp-refit folder run (you will need Java + Maven installed):
 ```
 build.cmd
 ```
